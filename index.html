@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akhi Bot - The Ultimate Discord Bot</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="https://cdn.discordapp.com/avatars/1488199377510989894/bot-avatar.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fira+Code&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">🤖 Akhi Bot</div>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <div class="nav-links" id="navLinks">
+            <a href="#features">Features</a>
+            <a href="#commands">Commands</a>
+            <a href="#pricing">Pricing</a>
+            <a href="https://discord.gg/yourserver">Support</a>
+            <a href="https://discord.com/oauth2/authorize?client_id=1488199377510989894&permissions=8&scope=bot" class="nav-btn">Add to Discord</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-badge animate">🚀 180+ Commands • 24/7 Online</span>
+            <h1 class="animate delay-1">The Ultimate<br>Discord Bot</h1>
+            <p class="animate delay-2">Moderation, Leveling, Music, Economy, Games & More.<br>Everything your server needs in one powerful bot.</p>
+            <div class="hero-buttons animate delay-3">
+                <a href="https://discord.com/oauth2/authorize?client_id=1488199377510989894&permissions=8&scope=bot" class="btn btn-primary">🚀 Add to Discord</a>
+                <a href="#features" class="btn btn-secondary">Learn More →</a>
+            </div>
+            <div class="hero-stats animate delay-3">
+                <div class="stat-item">
+                    <div class="stat-number">180+</div>
+                    <div class="stat-label">Commands</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">10k+</div>
+                    <div class="stat-label">Servers</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">500k+</div>
+                    <div class="stat-label">Users</div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-image animate delay-2">
+            <img src="https://via.placeholder.com/500x400/1A1A1A/5865F2?text=Bot+Preview" alt="Bot Preview">
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="section-title">
+            <h2>Powerful Features</h2>
+            <p>Everything you need to manage and grow your Discord server</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🛡️</div>
+                <h3>Advanced Moderation</h3>
+                <p>Auto-mod, warn system, ban, kick, mute, timeout, and advanced logging.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Leveling System</h3>
+                <p>XP system, level roles, leaderboards, and customizable rewards.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎵</div>
+                <h3>Music Player</h3>
+                <p>High-quality music from Spotify, YouTube, and SoundCloud with filters.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💰</div>
+                <h3>Economy System</h3>
+                <p>Virtual currency, daily rewards, shop, gambling, and trading.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎤</div>
+                <h3>VoiceMaster</h3>
+                <p>Custom voice channels with full control for your members.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎁</div>
+                <h3>Giveaways</h3>
+                <p>Easy-to-use giveaway system with rerolls and requirements.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="stat-card">
+            <div class="number">180+</div>
+            <div class="label">Commands</div>
+        </div>
+        <div class="stat-card">
+            <div class="number">17</div>
+            <div class="label">Categories</div>
+        </div>
+        <div class="stat-card">
+            <div class="number">24/7</div>
+            <div class="label">Uptime</div>
+        </div>
+        <div class="stat-card">
+            <div class="number">99.9%</div>
+            <div class="label">Reliability</div>
+        </div>
+    </section>
+
+    <!-- Commands Preview -->
+    <section id="commands" class="commands-section">
+        <div class="section-title">
+            <h2>Command Categories</h2>
+            <p>All the commands you'll ever need</p>
+        </div>
+        <div class="commands-grid">
+            <div class="command-category">
+                <h3>🛡️ Moderation</h3>
+                <ul class="command-list">
+                    <li>ban</li>
+                    <li>kick</li>
+                    <li>warn</li>
+                    <li>timeout</li>
+                    <li>purge</li>
+                    <li>lock/unlock</li>
+                </ul>
+            </div>
+            <div class="command-category">
+                <h3>📊 Leveling</h3>
+                <ul class="command-list">
+                    <li>rank</li>
+                    <li>leaderboard</li>
+                    <li>levelroles</li>
+                    <li>setlevel</li>
+                    <li>addxp</li>
+                </ul>
+            </div>
+            <div class="command-category">
+                <h3>🎵 Music</h3>
+                <ul class="command-list">
+                    <li>play</li>
+                    <li>skip</li>
+                    <li>queue</li>
+                    <li>volume</li>
+                    <li>loop</li>
+                    <li>pause/resume</li>
+                </ul>
+            </div>
+            <div class="command-category">
+                <h3>💰 Economy</h3>
+                <ul class="command-list">
+                    <li>daily</li>
+                    <li>work</li>
+                    <li>balance</li>
+                    <li>pay</li>
+                    <li>roulette</li>
+                    <li>slots</li>
+                </ul>
+            </div>
+            <div class="command-category">
+                <h3>🎮 Fun</h3>
+                <ul class="command-list">
+                    <li>tictactoe</li>
+                    <li>coinflip</li>
+                    <li>ship</li>
+                    <li>marry</li>
+                    <li>hug/kiss/slap</li>
+                </ul>
+            </div>
+            <div class="command-category">
+                <h3>⚙️ Admin</h3>
+                <ul class="command-list">
+                    <li>settings</li>
+                    <li>prefix</li>
+                    <li>language</li>
+                    <li>antinuke</li>
+                    <li>antiraid</li>
+                </ul>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 3rem;">
+            <a href="commands.html" class="btn btn-secondary">View All Commands →</a>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="section-title">
+            <h2>Simple Pricing</h2>
+            <p>One-time payment. Lifetime access.</p>
+        </div>
+        <div class="pricing-card">
+            <div class="pricing-badge">LIFETIME</div>
+            <h3>Premium Access</h3>
+            <div class="price">$6.99<span>/forever</span></div>
+            <ul class="pricing-features">
+                <li>All 180+ Commands</li>
+                <li>Priority Support</li>
+                <li>Unlimited Servers</li>
+                <li>Lifetime Updates</li>
+                <li>No Restrictions</li>
+                <li>Early Access Features</li>
+            </ul>
+            <a href="#" class="btn btn-primary" style="width: 100%; justify-content: center;">Get Premium →</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="logo">🤖 Akhi Bot</div>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="https://discord.gg/yourserver">Support Server</a>
+                <a href="https://discord.com/oauth2/authorize?client_id=1488199377510989894&permissions=8&scope=bot">Invite Bot</a>
+            </div>
+            <div class="footer-copyright">© 2026 Akhi Bot. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
