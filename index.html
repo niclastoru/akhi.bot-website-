@@ -3,238 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Akhi Bot | 180+ Commands • Next-Gen Discord Bot</title>
+    <title>Akhi Bot - The Ultimate Discord Bot</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: #05050A;
-            color: #fff;
-            overflow-x: hidden;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: #0F0F0F;
+            color: #FFFFFF;
+            line-height: 1.6;
         }
-
-        /* Animated Cyber Grid Background */
-        .cyber-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
-            background: radial-gradient(circle at 30% 10%, #0a0a1a, #020208);
-        }
-
-        canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            opacity: 0.4;
-        }
-
-        /* Custom Glow Cursor */
-        .cursor-glow {
-            width: 8px;
-            height: 8px;
-            background: #5865F2;
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 9999;
-            box-shadow: 0 0 15px #5865F2;
-        }
-
-        /* Navbar */
+        
         .navbar {
             position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 90%;
-            max-width: 1200px;
-            padding: 0.8rem 2rem;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(5, 5, 15, 0.7);
-            backdrop-filter: blur(20px);
-            border-radius: 80px;
-            border: 1px solid rgba(88, 101, 242, 0.3);
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(10px);
             z-index: 1000;
-            transition: all 0.3s;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
         }
-
-        .navbar.scrolled {
-            top: 0;
-            width: 100%;
-            border-radius: 0;
-            background: rgba(5, 5, 15, 0.95);
-            border-bottom: 1px solid #5865F2;
-        }
-
+        
         .logo {
-            font-size: 1.6rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #fff, #5865F2, #1DB954);
-            background-size: 200% auto;
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #5865F2, #1DB954);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: shimmer 3s linear infinite;
         }
-
-        @keyframes shimmer {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 200% 50%; }
-        }
-
+        
         .nav-links {
             display: flex;
             gap: 2rem;
             align-items: center;
         }
-
+        
         .nav-links a {
-            color: rgba(255,255,255,0.7);
+            color: white;
             text-decoration: none;
             font-weight: 500;
-            transition: 0.3s;
+            transition: color 0.3s;
         }
-
+        
         .nav-links a:hover {
             color: #5865F2;
-            text-shadow: 0 0 8px #5865F2;
         }
-
+        
         .nav-btn {
-            background: linear-gradient(90deg, #5865F2, #4752C4);
-            padding: 0.6rem 1.8rem;
-            border-radius: 50px;
+            background: #5865F2;
             color: white !important;
-            box-shadow: 0 0 12px rgba(88,101,242,0.5);
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
         }
-
+        
         .nav-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 20px #5865F2;
+            background: #4752C4;
+            transform: translateY(-2px);
         }
-
-        /* Hero Section */
+        
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
-            justify-content: center;
-            text-align: center;
             padding: 0 5%;
+            position: relative;
+            background: linear-gradient(135deg, rgba(88,101,242,0.1) 0%, rgba(29,185,84,0.1) 100%);
         }
-
+        
         .hero-content {
-            max-width: 800px;
-            animation: fadeInUp 0.8s ease;
+            max-width: 600px;
         }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
+        
         .hero-badge {
             display: inline-block;
-            background: rgba(88,101,242,0.15);
-            backdrop-filter: blur(10px);
-            padding: 0.5rem 1.5rem;
+            background: rgba(88,101,242,0.2);
+            color: #5865F2;
+            padding: 0.5rem 1.2rem;
             border-radius: 50px;
             font-size: 0.9rem;
             font-weight: 600;
-            color: #5865F2;
-            border: 1px solid rgba(88,101,242,0.3);
-            margin-bottom: 2rem;
-        }
-
-        .hero h1 {
-            font-size: 4.8rem;
-            font-weight: 800;
-            line-height: 1.1;
             margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, #fff, #5865F2, #1DB954);
-            background-size: 200% 200%;
+            border: 1px solid rgba(88,101,242,0.3);
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #5865F2, #1DB954);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: gradientFlow 5s ease infinite;
         }
-
-        @keyframes gradientFlow {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-
+        
         .hero p {
             font-size: 1.2rem;
-            color: #aaa;
-            margin-bottom: 2rem;
+            color: #888;
+            margin-bottom: 2.5rem;
         }
-
+        
         .hero-buttons {
             display: flex;
-            gap: 1.2rem;
-            justify-content: center;
-            flex-wrap: wrap;
+            gap: 1rem;
         }
-
+        
         .btn {
-            padding: 0.9rem 2.2rem;
+            padding: 1rem 2rem;
             border-radius: 50px;
             font-weight: 600;
             text-decoration: none;
             transition: all 0.3s;
+            display: inline-block;
         }
-
+        
         .btn-primary {
-            background: linear-gradient(95deg, #5865F2, #3b47c2);
+            background: #5865F2;
             color: white;
-            box-shadow: 0 5px 20px rgba(88,101,242,0.4);
+            box-shadow: 0 10px 30px rgba(88,101,242,0.3);
         }
-
+        
         .btn-primary:hover {
+            background: #4752C4;
             transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(88,101,242,0.6);
         }
-
+        
         .btn-secondary {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
+            background: transparent;
             color: white;
+            border: 1px solid rgba(255,255,255,0.2);
         }
-
+        
         .btn-secondary:hover {
-            border-color: #5865F2;
-            background: rgba(88,101,242,0.1);
+            background: rgba(255,255,255,0.05);
             transform: translateY(-3px);
         }
-
+        
         .hero-stats {
             display: flex;
-            gap: 2.5rem;
-            justify-content: center;
+            gap: 3rem;
             margin-top: 3rem;
-            flex-wrap: wrap;
         }
-
-        .stat-card {
-            background: rgba(20,20,40,0.5);
-            backdrop-filter: blur(10px);
-            padding: 1rem 2rem;
-            border-radius: 24px;
-            border: 1px solid rgba(255,255,255,0.05);
+        
+        .stat-item {
+            text-align: center;
         }
-
+        
         .stat-number {
             font-size: 2.5rem;
             font-weight: 800;
@@ -242,307 +165,320 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
+        
         .stat-label {
-            color: #aaa;
-            font-size: 0.8rem;
+            color: #888;
+            font-size: 0.9rem;
         }
-
-        /* Features Section */
+        
         .features {
             padding: 6rem 5%;
+            background: #0A0A0A;
         }
-
+        
         .section-title {
             text-align: center;
-            margin-bottom: 3.5rem;
+            margin-bottom: 4rem;
         }
-
+        
         .section-title h2 {
-            font-size: 2.8rem;
-            background: linear-gradient(135deg, #fff, #5865F2);
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #5865F2, #1DB954);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
+        
         .section-title p {
             color: #888;
-            margin-top: 0.5rem;
+            margin-top: 1rem;
         }
-
+        
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.8rem;
-            max-width: 1200px;
-            margin: 0 auto;
+            gap: 2rem;
         }
-
+        
         .feature-card {
-            background: rgba(20,20,40,0.4);
-            backdrop-filter: blur(12px);
-            border-radius: 28px;
-            padding: 2rem;
-            text-align: center;
+            background: #1A1A1A;
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
             border: 1px solid rgba(255,255,255,0.05);
             transition: all 0.3s;
+            text-align: center;
         }
-
+        
         .feature-card:hover {
             transform: translateY(-10px);
             border-color: #5865F2;
-            box-shadow: 0 20px 30px rgba(88,101,242,0.15);
         }
-
+        
         .feature-icon {
             font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
             margin-bottom: 1rem;
         }
-
-        .feature-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 0.5rem;
-        }
-
+        
         .feature-card p {
-            color: #999;
-            font-size: 0.9rem;
+            color: #888;
         }
-
-        /* Commands Section */
+        
         .commands-preview {
-            padding: 5rem 5%;
-            background: radial-gradient(circle at 20% 30%, rgba(88,101,242,0.05), transparent);
+            padding: 6rem 5%;
+            background: #0F0F0F;
         }
-
+        
         .commands-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1.5rem;
-            max-width: 1200px;
-            margin: 0 auto 2.5rem;
+            margin-bottom: 3rem;
         }
-
-        .cmd-card {
-            background: rgba(10,10,25,0.6);
-            backdrop-filter: blur(10px);
-            border-radius: 24px;
-            padding: 1.3rem 1.5rem;
-            border-left: 3px solid #5865F2;
-            transition: 0.3s;
+        
+        .command-category {
+            background: #1A1A1A;
+            border-radius: 15px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.05);
         }
-
-        .cmd-card:hover {
-            transform: translateX(5px);
-            background: rgba(88,101,242,0.1);
-        }
-
-        .cmd-card h3 {
+        
+        .command-category h3 {
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            margin-bottom: 0.8rem;
-            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
-
-        .cmd-list {
+        
+        .command-list {
             list-style: none;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
         }
-
-        .cmd-list li {
-            background: rgba(88,101,242,0.15);
-            padding: 0.2rem 0.7rem;
-            border-radius: 20px;
-            font-family: monospace;
-            font-size: 0.8rem;
-            color: #ccc;
+        
+        .command-list li {
+            padding: 0.4rem 0;
+            color: #888;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
         }
-
-        /* CTA */
-        .cta {
+        
+        .command-list li::before {
+            content: '/';
+            color: #1DB954;
+            margin-right: 0.3rem;
+        }
+        
+        .center-btn {
             text-align: center;
-            padding: 4rem 2rem;
-            margin: 2rem 5%;
-            background: linear-gradient(135deg, rgba(88,101,242,0.1), rgba(29,185,84,0.05));
-            border-radius: 60px;
-            backdrop-filter: blur(10px);
         }
-
-        .cta h2 {
-            font-size: 2.2rem;
-        }
-
-        /* Footer */
+        
         .footer {
-            padding: 2.5rem 5%;
+            background: #0A0A0A;
+            padding: 3rem 5%;
             border-top: 1px solid rgba(255,255,255,0.05);
-            text-align: center;
-            background: #030308;
         }
-
+        
         .footer-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 1rem;
+            gap: 2rem;
         }
-
+        
         .footer-links {
             display: flex;
-            gap: 1.8rem;
+            gap: 2rem;
         }
-
+        
         .footer-links a {
             color: #888;
             text-decoration: none;
         }
-
+        
         .footer-links a:hover {
             color: #5865F2;
         }
-
+        
+        .footer-copyright {
+            color: #888;
+        }
+        
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .navbar { flex-direction: column; gap: 0.8rem; width: 95%; }
-            .nav-links { flex-wrap: wrap; justify-content: center; gap: 1rem; }
-            .stat-card { padding: 0.5rem 1rem; }
-            .stat-number { font-size: 1.8rem; }
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .hero-stats {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
         }
     </style>
 </head>
 <body>
-
-<div class="cyber-bg"></div>
-<canvas id="matrixCanvas"></canvas>
-<div class="cursor-glow"></div>
-
-<nav class="navbar" id="navbar">
-    <div class="logo">🤖 AKHI BOT</div>
-    <div class="nav-links">
-        <a href="#">Home</a>
-        <a href="#">Commands</a>
-        <a href="#">Privacy</a>
-        <a href="#">Terms</a>
-        <a href="https://discord.com/oauth2/authorize?client_id=1488199377510989894&permissions=8&scope=bot" class="nav-btn">✦ Add to Discord</a>
-    </div>
-</nav>
-
-<section class="hero">
-    <div class="hero-content">
-        <div class="hero-badge">🚀 180+ Commands • 24/7 Online • 17 Categories</div>
-        <h1>The Ultimate<br>Discord Bot</h1>
-        <p>Moderation, Leveling, Music, Economy, Games & More — Everything your server needs in one powerful bot.</p>
-        <div class="hero-buttons">
-            <a href="https://discord.com/oauth2/authorize?client_id=1488199377510989894&permissions=8&scope=bot" class="btn btn-primary">🚀 Add to Discord</a>
-            <a href="#" class="btn btn-secondary">Learn More →</a>
-        </div>
-        <div class="hero-stats">
-            <div class="stat-card"><div class="stat-number">180+</div><div class="stat-label">Commands</div></div>
-            <div class="stat-card"><div class="stat-number">24/7</div><div class="stat-label">Online</div></div>
-            <div class="stat-card"><div class="stat-number">17</div><div class="stat-label">Categories</div></div>
-        </div>
-    </div>
-</section>
-
-<section class="features">
-    <div class="section-title">
-        <h2>Powerful Features</h2>
-        <p>Everything you need to manage and grow your Discord server</p>
-    </div>
-    <div class="features-grid">
-        <div class="feature-card"><div class="feature-icon">🛡️</div><h3>Advanced Moderation</h3><p>Auto-mod, warn system, ban, kick, mute, timeout, advanced logging.</p></div>
-        <div class="feature-card"><div class="feature-icon">📊</div><h3>Leveling System</h3><p>XP system, level roles, leaderboards, customizable rewards.</p></div>
-        <div class="feature-card"><div class="feature-icon">🎵</div><h3>Music Player</h3><p>High-quality music from Spotify, YouTube, SoundCloud with filters.</p></div>
-        <div class="feature-card"><div class="feature-icon">💰</div><h3>Economy System</h3><p>Virtual currency, daily rewards, shop, gambling, trading.</p></div>
-        <div class="feature-card"><div class="feature-icon">🎤</div><h3>VoiceMaster</h3><p>Custom voice channels with full control for your members.</p></div>
-        <div class="feature-card"><div class="feature-icon">🎁</div><h3>Giveaways</h3><p>Easy-to-use giveaway system with rerolls and requirements.</p></div>
-    </div>
-</section>
-
-<section class="commands-preview">
-    <div class="section-title">
-        <h2>Popular Commands</h2>
-        <p>Just a glimpse of what Akhi Bot can do</p>
-    </div>
-    <div class="commands-grid">
-        <div class="cmd-card"><h3>🛡️ Moderation</h3><ul class="cmd-list"><li>/ban</li><li>/kick</li><li>/warn</li><li>/timeout</li><li>/purge</li><li>/lock</li></ul></div>
-        <div class="cmd-card"><h3>📊 Leveling</h3><ul class="cmd-list"><li>/rank</li><li>/leaderboard</li><li>/levelroles</li><li>/setlevel</li><li>/addxp</li></ul></div>
-        <div class="cmd-card"><h3>🎵 Music</h3><ul class="cmd-list"><li>/play</li><li>/skip</li><li>/queue</li><li>/volume</li><li>/loop</li><li>/pause</li></ul></div>
-        <div class="cmd-card"><h3>💰 Economy</h3><ul class="cmd-list"><li>/daily</li><li>/work</li><li>/balance</li><li>/pay</li><li>/roulette</li><li>/slots</li></ul></div>
-    </div>
-    <div style="text-align: center;">
-        <a href="#" class="btn btn-secondary">View All 180+ Commands →</a>
-    </div>
-</section>
-
-<section class="cta">
-    <h2>Ready to level up your server?</h2>
-    <p style="margin: 1rem 0 1.5rem; color: #aaa;">Add Akhi Bot now — it's free!</p>
-    <a href="https://discord.com/oauth2/authorize?client_id=1488199377510989894&permissions=8&scope=bot" class="btn btn-primary">✨ Invite Akhi Bot</a>
-</section>
-
-<footer class="footer">
-    <div class="footer-content">
+    <nav class="navbar">
         <div class="logo">🤖 Akhi Bot</div>
-        <div class="footer-links">
-            <a href="#">Home</a>
-            <a href="#">Commands</a>
-            <a href="#">Privacy</a>
-            <a href="#">Terms</a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="commands.html">Commands</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="terms.html">Terms</a>
+            <a href="https://discord.com/oauth2/authorize?client_id=1488199377510989894&permissions=8&scope=bot" class="nav-btn">Add to Discord</a>
         </div>
-        <div>© 2026 Akhi Bot. All rights reserved.</div>
-    </div>
-</footer>
+    </nav>
 
-<script>
-    // Navbar scroll effect
-    window.addEventListener('scroll', () => {
-        const navbar = document.getElementById('navbar');
-        if (window.scrollY > 50) navbar.classList.add('scrolled');
-        else navbar.classList.remove('scrolled');
-    });
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-badge">🚀 180+ Commands • 24/7 Online</span>
+            <h1>The Ultimate<br>Discord Bot</h1>
+            <p>Moderation, Leveling, Music, Economy, Games & More.<br>Everything your server needs in one powerful bot.</p>
+            <div class="hero-buttons">
+                <a href="https://discord.com/oauth2/authorize?client_id=1488199377510989894&permissions=8&scope=bot" class="btn btn-primary">🚀 Add to Discord</a>
+                <a href="#features" class="btn btn-secondary">Learn More →</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number">180+</div>
+                    <div class="stat-label">Commands</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Online</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">17</div>
+                    <div class="stat-label">Categories</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    // Matrix rain background
-    const canvas = document.getElementById('matrixCanvas');
-    const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    <section id="features" class="features">
+        <div class="section-title">
+            <h2>Powerful Features</h2>
+            <p>Everything you need to manage and grow your Discord server</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🛡️</div>
+                <h3>Advanced Moderation</h3>
+                <p>Auto-mod, warn system, ban, kick, mute, timeout, and advanced logging.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Leveling System</h3>
+                <p>XP system, level roles, leaderboards, and customizable rewards.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎵</div>
+                <h3>Music Player</h3>
+                <p>High-quality music from Spotify, YouTube, and SoundCloud with filters.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💰</div>
+                <h3>Economy System</h3>
+                <p>Virtual currency, daily rewards, shop, gambling, and trading.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎤</div>
+                <h3>VoiceMaster</h3>
+                <p>Custom voice channels with full control for your members.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎁</div>
+                <h3>Giveaways</h3>
+                <p>Easy-to-use giveaway system with rerolls and requirements.</p>
+            </div>
+        </div>
+    </section>
 
-    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-    const fontSize = 14;
-    const columns = canvas.width / fontSize;
-    const drops = Array(Math.floor(columns)).fill(1);
+    <section class="commands-preview">
+        <div class="section-title">
+            <h2>Popular Commands</h2>
+            <p>Just a glimpse of what Akhi Bot can do</p>
+        </div>
+        <div class="commands-grid">
+            <div class="command-category">
+                <h3>🛡️ Moderation</h3>
+                <ul class="command-list">
+                    <li>ban</li>
+                    <li>kick</li>
+                    <li>warn</li>
+                    <li>timeout</li>
+                    <li>purge</li>
+                    <li>lock / unlock</li>
+                </ul>
+            </div>
+            <div class="command-category">
+                <h3>📊 Leveling</h3>
+                <ul class="command-list">
+                    <li>rank</li>
+                    <li>leaderboard</li>
+                    <li>levelroles</li>
+                    <li>setlevel</li>
+                    <li>addxp</li>
+                </ul>
+            </div>
+            <div class="command-category">
+                <h3>🎵 Music</h3>
+                <ul class="command-list">
+                    <li>play</li>
+                    <li>skip</li>
+                    <li>queue</li>
+                    <li>volume</li>
+                    <li>loop</li>
+                    <li>pause / resume</li>
+                </ul>
+            </div>
+            <div class="command-category">
+                <h3>💰 Economy</h3>
+                <ul class="command-list">
+                    <li>daily</li>
+                    <li>work</li>
+                    <li>balance</li>
+                    <li>pay</li>
+                    <li>roulette</li>
+                    <li>slots</li>
+                </ul>
+            </div>
+        </div>
+        <div class="center-btn">
+            <a href="commands.html" class="btn btn-secondary">View All 180+ Commands →</a>
+        </div>
+    </section>
 
-    function draw() {
-        ctx.fillStyle = 'rgba(5, 5, 10, 0.05)';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-        ctx.fillStyle = '#5865F2';
-        ctx.font = fontSize + 'px monospace';
-        for (let i = 0; i < drops.length; i++) {
-            const text = chars[Math.floor(Math.random() * chars.length)];
-            ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-            if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
-            drops[i]++;
-        }
-        requestAnimationFrame(draw);
-    }
-    draw();
-
-    window.addEventListener('resize', () => {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-    });
-
-    // Custom cursor
-    const cursor = document.querySelector('.cursor-glow');
-    document.addEventListener('mousemove', (e) => {
-        cursor.style.left = e.clientX - 4 + 'px';
-        cursor.style.top = e.clientY - 4 + 'px';
-    });
-</script>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="logo">🤖 Akhi Bot</div>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="commands.html">Commands</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+            </div>
+            <div class="footer-copyright">© 2026 Akhi Bot. All rights reserved.</div>
+        </div>
+    </footer>
 </body>
 </html>
